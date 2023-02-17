@@ -31,9 +31,10 @@ ElectricalDevice.prototype.getConnectionInfo = function(){
     return this.isConnected;
 }
 
-function HomeElectricalDevice(power, isConnected){
+function HomeElectricalDevice(power, isConnected, category){
     this.power = power,
     this.isConnected = isConnected,
+    this.category = category,
     this.whereUsed = "home"
 }
 
@@ -59,9 +60,9 @@ function MobileElectricalDevice(power, isConnected, hasBattery, chargePercentage
 HomeElectricalDevice.prototype = new ElectricalDevice();
 MobileElectricalDevice.prototype =  new ElectricalDevice();
 
-const tableLamp = new HomeElectricalDevice(60, false);
+const tableLamp = new HomeElectricalDevice(60, false, "home office");
 const laptop = new MobileElectricalDevice(1000, true, true, 100);
-const fridge = new HomeElectricalDevice(200, true);
+const fridge = new HomeElectricalDevice(200, true, "kitchen");
 const mobilePhone = new MobileElectricalDevice(25, true, true, 25);
 
 let arrElectricDevices = [];
